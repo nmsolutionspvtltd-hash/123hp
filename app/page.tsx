@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center">
           <Image
             src="/images/hp-logo.svg"
             alt="HP Logo"

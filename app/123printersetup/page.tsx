@@ -31,7 +31,7 @@ export default function PrinterSetupPage() {
     <div className="flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center">
           <Image src="/images/hp-logo.svg" alt="HP Logo" width={48} height={48} />
           <nav className="hidden md:flex items-center gap-8 font-medium">
             <Link href="#" className="text-gray-700 hover:text-[#0096D6] transition-colors">
