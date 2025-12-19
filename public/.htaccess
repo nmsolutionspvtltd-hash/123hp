@@ -1,0 +1,90 @@
+# Enable URL rewriting
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Do NOT rewrite real files or folders
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Fix Next.js static resources path
+  RewriteRule ^(.+/)?_next/(.*)$ /_next/$2 [L]
+
+  # For URL like /page → serve /page/index.html
+  RewriteRule ^([^/]+)/?$ $1/index.html [L]
+
+  # Serve index.html for homepage
+  RewriteRule ^$ index.html [L]
+
+  # If nothing matched, fallback to index.html (for SPA routing)
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+
+# ---------------------------------
+# CACHE & PERFORMANCE
+# ---------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Never cache HTML (so refresh always loads new version)
+  ExpiresByType text/html "now"
+
+  # Cache static assets for 1 year
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+
+# ---------------------------------
+# GZIP COMPRESSION
+# ---------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+
+# ---------------------------------
+# SECURITY & HEADER OPTIMIZATION
+# ---------------------------------
+<IfModule mod_headers.c>
+  # Prevent exposing server details
+  Header unset X-Powered-By
+
+  # Prevent Chrome white screen issue on refresh
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0" "expr=%{CONTENT_TYPE} =~ m#(text/html|application/javascript)#"
+
+  # Cache static assets aggressively
+  Header set Cache-Control "public, max-age=31536000" "expr=%{CONTENT_TYPE} =~ m#(image|font|text/css)#"
+
+  # Security headers
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+
+# ---------------------------------
+# Custom 404 Page
+# ---------------------------------
+ErrorDocument 404 /404/index.html
+
+
+# ---------------------------------
+# Block sensitive backend files
+# ---------------------------------
+<FilesMatch "^\.">
+  Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(env|git|json|config|tsconfig|lock|xml|ini)$">
+  Deny from all
+</FilesMatch>
