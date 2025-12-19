@@ -12,12 +12,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import MobileNav from "@/components/mobile-nav";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 gap-16 py-2 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center justify-between">
           <Image
             src="/images/hp-logo.svg"
             alt="HP Logo"
@@ -50,26 +51,27 @@ export default function HomePage() {
               LaserJet
             </Link>
           </nav>
+          <MobileNav />
         </div>
       </header>
       {/* Hero Section */}
-      <section className="relative bg-[#0096D6] py-0 px-6 md:px-12 lg:px-24">
+      <section className="relative bg-[#0096D6] py-8 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-32 justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-white mb-6">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 justify-between items-center">
+            <div className="text-center md:text-left">
+              <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
                 Need Help Setting Up Your Printer?
               </h1>
-              <p className="text-white text-lg mb-8 leading-relaxed">
+              <p className="text-white text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
                 Whether you're installing a new printer or reconnecting one you
                 already have, we're here to help. Get fast, reliable, and
                 hassle-free support to have your printer up and running in no
                 time.
               </p>
-              <Link href="/123printersetup">
+              <Link href="/123printersetup" className="inline-block">
                 <Button
                   size="lg"
-                  className="bg-[#1e293b] text-white hover:bg-[#334155] border-2 border-white/20 px-8 py-6 text-base rounded-md"
+                  className="bg-[#1e293b] text-white hover:bg-[#334155] border-2 border-white/20 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-md"
                 >
                   Click Here to Setup
                 </Button>
@@ -80,16 +82,16 @@ export default function HomePage() {
               alt="Printer"
               width={500}
               height={400}
-              className="w-full aspect-square max-w-md object-contain"
+              className="w-full aspect-square max-w-xs sm:max-w-md object-contain"
             />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
             <div className="text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-20 h-20 flex items-center justify-center">
@@ -99,10 +101,10 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Wireless Printer Setup
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 Connect your printer to Wi-Fi and enjoy effortless wireless
                 printing from any device — no cables, no hassle.
               </p>
@@ -117,10 +119,10 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Troubleshooting Errors
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 Quickly resolve connectivity issues and error codes. Our team is
                 here to help get your printer back on track.
               </p>
@@ -135,10 +137,10 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Printer Maintenance
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 Keep your printer in top shape — improve its performance and
                 extend its lifespan.
               </p>
@@ -148,7 +150,7 @@ export default function HomePage() {
       </section>
 
       {/* Need Help Section */}
-      <section className="relative py-20 px-6 md:px-12 lg:px-24">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -159,10 +161,10 @@ export default function HomePage() {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Need Help?
             </h2>
-            <p className="text-white text-lg mb-8 leading-relaxed">
+            <p className="text-white text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
               We're here for you! Whether you need a little guidance or want us
               to take care of everything, we'll help you set up your printer
               smoothly — no stress, no hassle.
@@ -180,22 +182,22 @@ export default function HomePage() {
       </section>
 
       {/* How We Can Help Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-32 justify-between items-center">
+          <div className="flex flex-col md:flex-row gap-8 sm:gap-12 md:gap-20 lg:gap-32 justify-between items-center">
             <Image
               src="/hp2.webp"
               alt="Printer with sample print"
               width={400}
               height={400}
-              className="w-full aspect-square max-w-md object-contain"
+              className="w-full aspect-square max-w-xs sm:max-w-md object-contain"
             />
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
                 How We Can Help:
               </h2>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex gap-2 sm:gap-3 text-sm sm:text-base">
                   <span className="text-gray-900 font-bold">•</span>
                   <div>
                     <span className="font-bold text-gray-900">
@@ -207,7 +209,7 @@ export default function HomePage() {
                     </span>
                   </div>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2 sm:gap-3 text-sm sm:text-base">
                   <span className="text-gray-900 font-bold">•</span>
                   <div>
                     <span className="font-bold text-gray-900">
@@ -220,7 +222,7 @@ export default function HomePage() {
                     </span>
                   </div>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2 sm:gap-3 text-sm sm:text-base">
                   <span className="text-gray-900 font-bold">•</span>
                   <div>
                     <span className="font-bold text-gray-900">
@@ -232,7 +234,7 @@ export default function HomePage() {
                     </span>
                   </div>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2 sm:gap-3 text-sm sm:text-base">
                   <span className="text-gray-900 font-bold">•</span>
                   <div>
                     <span className="font-bold text-gray-900">
@@ -244,7 +246,7 @@ export default function HomePage() {
                     </span>
                   </div>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2 sm:gap-3 text-sm sm:text-base">
                   <span className="text-gray-900 font-bold">•</span>
                   <div>
                     <span className="font-bold text-gray-900">
@@ -257,11 +259,11 @@ export default function HomePage() {
                   </div>
                 </li>
               </ul>
-              <div className="mt-8">
-                <Link href="#">
+              <div className="mt-6 sm:mt-8">
+                <Link href="#" className="inline-block">
                   <Button
                     size="lg"
-                    className="bg-[#0ea5e9] text-white hover:bg-[#0891b2] px-8 py-6 text-base rounded-md"
+                    className="bg-[#0ea5e9] text-white hover:bg-[#0891b2] px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-md"
                   >
                     Click Here to Setup
                   </Button>
@@ -273,13 +275,13 @@ export default function HomePage() {
       </section>
 
       {/* Driver Installation Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-r from-[#0891b2] to-[#0ea5e9]">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24 bg-gradient-to-r from-[#0891b2] to-[#0ea5e9]">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
               Installing the Latest Printer Driver
             </h2>
-            <p className="text-white text-lg mb-8 leading-relaxed">
+            <p className="text-white text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
               To keep your printer running smoothly, it's essential to have the
               most up-to-date driver installed. Printer drivers enable smooth
               communication between your printer and computer.
@@ -297,21 +299,21 @@ export default function HomePage() {
       </section>
 
       {/* Additional Info Section */}
-      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <p className="text-gray-500 font-extralight text-lg leading-relaxed mb-12">
+          <p className="text-gray-500 font-extralight text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-12">
             Install HP Smart software and drivers on each mobile device or
             computer you want to print from. Add the printer on the new device.
           </p>
-          <div className="flex items-center gap-3 text-gray-500 font-extralight">
-            <User className="w-5 h-5" />
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-gray-500 font-extralight text-sm sm:text-base">
+            <User className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>Need additional help with setup? Visit </span>
             <Link href="#" className="text-[#0096D6] underline">
               HP Support
             </Link>
           </div>
-          <div className="mt-20">
-            <div className="flex items-center gap-2 text-gray-700">
+          <div className="mt-12 sm:mt-20">
+            <div className="flex items-center gap-2 text-sm sm:text-base text-gray-700">
               <Image
                 src="/us-flag.png"
                 alt="US Flag"
@@ -328,13 +330,13 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white font-thin py-12 px-6 md:px-12 lg:px-24">
+      <footer className="bg-black text-white font-thin py-8 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* About Us Column */}
             <div>
-              <h3 className="mb-4">About Us</h3>
-              <ul className="space-y-2">
+              <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium">About Us</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <li>
                   <Link href="#">Contact HP</Link>
                 </li>
@@ -367,8 +369,8 @@ export default function HomePage() {
 
             {/* Ways to buy Column */}
             <div>
-              <h3 className="mb-4">Ways to buy</h3>
-              <ul className="space-y-2">
+              <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium">Ways to buy</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <li>
                   <Link href="#">Shop online</Link>
                 </li>
@@ -389,8 +391,8 @@ export default function HomePage() {
 
             {/* Support Column */}
             <div>
-              <h3 className="mb-4">Support</h3>
-              <ul className="space-y-2">
+              <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium">Support</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <li>
                   <Link href="#">Download drivers</Link>
                 </li>
@@ -417,8 +419,8 @@ export default function HomePage() {
 
             {/* HP Partners Column */}
             <div>
-              <h3 className="mb-4">HP Partners</h3>
-              <ul className="space-y-2">
+              <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium">HP Partners</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <li>
                   <Link href="#">HP Amplify Partner Program</Link>
                 </li>
@@ -433,16 +435,16 @@ export default function HomePage() {
 
             {/* Stay connected Column */}
             <div>
-              <h3 className="mb-4">Stay connected</h3>
-              <div className="flex gap-4">
+              <h3 className="mb-3 sm:mb-4 text-sm sm:text-base font-medium">Stay connected</h3>
+              <div className="flex gap-3 sm:gap-4">
                 <Link href="#">
-                  <Linkedin className="w-6 h-6" />
+                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </Link>
                 <Link href="#">
-                  <Facebook className="w-6 h-6" />
+                  <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
                 </Link>
                 <Link href="#">
-                  <Instagram className="w-6 h-6" />
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </Link>
                 <Link href="#">
                   <svg
@@ -454,7 +456,7 @@ export default function HomePage() {
                   </svg>
                 </Link>
                 <Link href="#">
-                  <Youtube className="w-6 h-6" />
+                  <Youtube className="w-5 h-5 sm:w-6 sm:h-6" />
                 </Link>
                 <Link href="#">
                   <svg
@@ -470,8 +472,8 @@ export default function HomePage() {
           </div>
 
           {/* Footer Bottom Links */}
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-wrap gap-2 text-sm mb-6">
+          <div className="border-t border-gray-800 pt-6 sm:pt-8">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 text-xs sm:text-sm mb-4 sm:mb-6">
               <Link href="#">Recalls</Link>
               <span>|</span>
               <Link href="#">Product recycling</Link>
@@ -494,7 +496,7 @@ export default function HomePage() {
               <span>|</span>
               <Link href="#">IP Notices</Link>
             </div>
-            <p className="text-sm">
+            <p className="text-xs sm:text-sm">
               ©2025 HP Development Company, L.P. The information contained
               herein is subject to change without notice.
             </p>

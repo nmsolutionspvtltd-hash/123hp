@@ -12,6 +12,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import MobileNav from "@/components/mobile-nav";
 
 export default function PrinterSetupPage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function PrinterSetupPage() {
     <div className="flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 gap-16 py-2 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 gap-4 sm:gap-16 py-2 flex items-center justify-between">
           <Image src="/images/hp-logo.svg" alt="HP Logo" width={48} height={48} />
           <nav className="hidden md:flex items-center gap-8 font-medium">
             <Link href="#" className="text-gray-700 hover:text-[#0096D6] transition-colors">
@@ -46,30 +47,31 @@ export default function PrinterSetupPage() {
               LaserJet
             </Link>
           </nav>
+          <MobileNav />
         </div>
       </header>
 
       {/* Main Content */}
       <main className="flex-1 relative overflow-hidden" style={{backgroundImage:"url(/bg.png)"}}>
-        <div className="max-w-7xl mx-auto px-6 py4 md:py-10 relative z-10">
-            <div className="space-y-8">
-              <h1 className="text-3xl md:text-4xl tracking-wide font-light text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 relative z-10">
+            <div className="space-y-6 sm:space-y-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-wide font-light text-white">
                 Set up your HP printer
               </h1>
 
-              <p className="text-lg md:text-2xl font-extralight tracking-tight text-white/90">
+              <p className="text-base sm:text-lg md:text-2xl font-extralight tracking-tight text-white/90">
                 Enter your HP product name and model number to get the right HP Smart software and drivers for you
               </p>
 
               {/* Search form */}
-              <div className="space-y-4 flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-4 w-1/2">
+              <div className="space-y-4 flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-4 w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
                 <div className="relative flex-1">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder='Enter your product name here. Example: "OfficeJet 9010"'
-                    className="w-full p-3 rounded-lg text-gray-800 font-extralight tracking-tight bg-white focus:outline-none"
+                    className="w-full p-2.5 sm:p-3 pr-10 sm:pr-12 rounded-lg text-sm sm:text-base text-gray-800 font-extralight tracking-tight bg-white focus:outline-none"
                     disabled={isLoading}
                   />
                   <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -78,13 +80,13 @@ export default function PrinterSetupPage() {
                 <button 
                   onClick={handleNext}
                   disabled={isLoading || !searchQuery.trim()}
-                  className="px-6 py-3 bg-gray-600/50 text-gray-300 font-medium rounded-2xl disabled:cursor-not-allowed"
+                  className="px-6 py-2.5 sm:py-3 bg-gray-600/50 text-gray-300 text-sm sm:text-base font-medium rounded-2xl disabled:cursor-not-allowed"
                 >
                   {isLoading ? "Loading..." : "Next"}
                 </button>
               </div>
 
-              <div className="space-y-6 font-extralight">
+              <div className="space-y-4 sm:space-y-6 font-extralight text-sm sm:text-base">
                 <Link href="#" className="text-white underline hover:no-underline block">
                   Where's the product name?
                 </Link>
@@ -97,7 +99,7 @@ export default function PrinterSetupPage() {
       </main>
 
        {/* Additional Info Section */}
-      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <p className="text-gray-500 font-extralight text-lg leading-relaxed mb-12">
             Install HP Smart software and drivers on each mobile device or
